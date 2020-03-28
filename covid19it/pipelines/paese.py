@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from PIL import Image, ImageDraw, ImageFont
 from covid19it.data.paese import DataPaese
 from covid19it.models.sir import ModelSIR
 from covid19it.models.logistic import ModelLogistic
@@ -63,6 +64,33 @@ def desc_paese(path_output=dict_config["PATH_OUT"], figsize=[16, 8]):
     obj_data_p = DataPaese()
     obj_data_p.load()
     obj_data_p.parse()
+
+    dtf_last = obj_data_p.data\
+    .loc[:, ["data", 
+             "totale_casi",  
+             "totale_attualmente_positivi", 
+             "dimessi_guariti", 
+             "terapia_intensiva", 
+             "deceduti"]]\
+    .rename({"data": "DATA", 
+             "totale_casi": "TOTALE CASI",  
+             "totale_attualmente_positivi": "ATTUALMENTE POSITIVI", 
+             "dimessi_guariti": "GUARITI", 
+             "terapia_intensiva": "TERAPIA INTENSIVA", 
+             "deceduti": "DECEDUTI"}, axis=1)\
+    .iloc[-1, :]
+
+    array_text = str(dtf_last).split("\n")[0:-1]
+    font = ImageFont.truetype("/usr/share/fonts/TTF/Inconsolata-Black.ttf", 28, encoding="unic")
+    h = font.getsize(array_text[0])[1]
+    w = max([font.getsize(_)[0] for _ in array_text]) + 20
+    H = (h + 10) * len(array_text) + 20
+    canvas = Image.new('RGB', (w, H), "white")
+    draw = ImageDraw.Draw(canvas)
+    for i,t in enumerate(array_text):
+        draw.text((10, 10+i*(h+10)), t, 'grey', font)
+    canvas.save(path_output + "/plot-andamento-nazionale.png", "PNG")
+
 
     ax = obj_data_p.data.plot(
         x="data", 
