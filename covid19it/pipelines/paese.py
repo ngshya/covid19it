@@ -36,9 +36,9 @@ def forecast_sir_paese(
     obj_model_sir.fit(N0=N0, array_I=array_I, array_R=array_R, n_history=None, fit_start=True)
     array_S_forecast_h, array_I_forecast_h, array_R_forecast_h = obj_model_sir.forecast(n_forecast)
 
-    plt.plot(array_days, array_S_forecast_h, color="darkgreen", linestyle="--", linewidth=3, label="Suscettibili    (proiezioni storiche)", alpha=0.4)
-    plt.plot(array_days, array_I_forecast_h, color="blue", linestyle="--", linewidth=3, label="Infetti (proiezioni  storiche)", alpha=0.4)
-    plt.plot(array_days, array_R_forecast_h, color="red", linestyle="--", linewidth=3, label="Rimossi (proiezioni   storiche)", alpha=0.4)
+    plt.plot(array_days, array_S_forecast_h, color="darkgreen", linestyle="--", linewidth=3, label="Suscettibili (proiezioni storiche)", alpha=0.4)
+    plt.plot(array_days, array_I_forecast_h, color="blue", linestyle="--", linewidth=3, label="Infetti (proiezioni storiche)", alpha=0.4)
+    plt.plot(array_days, array_R_forecast_h, color="red", linestyle="--", linewidth=3, label="Rimossi (proiezioni storiche)", alpha=0.4)
 
     plt.xlabel('n-esimo giorno da ' + str_today)
     plt.legend()
