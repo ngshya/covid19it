@@ -9,3 +9,4 @@ I vari grafici e le proiezioni sono ricavati a partire dai dati ufficiali rilasc
 Le proiezioni fornite dal presente sito sono basate su modelli semplici, possono essere utili per avere un'idea sull'andamento generale dell'epidemia ma senza la pretesa di essere precise.  
 
 [Andamento Nazionale](andamento_nazionale.md)
+[Situazione Province](andamento_province.md)
