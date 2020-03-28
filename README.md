@@ -1,3 +1,3 @@
-# covid19it 
+# COVID-19 Italia
 
-Questo è un test. 
+![andamento nazionale casi totali](output/plot_totale_casi_c.png)
