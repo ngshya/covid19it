@@ -43,7 +43,7 @@ def forecast_sir_paese(
     plt.xlabel('n-esimo giorno da ' + str_today)
     plt.legend()
 
-    fig.savefig(path_output + "/plot_sir_paese_h" + str(n_history) + "f" + str(n_forecast) + ".png")
+    fig.savefig(path_output + "/plot_sir_paese_h" + str(n_history) + "f" + str(n_forecast) + ".png", bbox_inches = "tight")
 
 
     fig = plt.figure(figsize=figsize)
@@ -55,7 +55,7 @@ def forecast_sir_paese(
     plt.title("Proiezioni numero di casi positivi al COVID-19 (dato cumulato, ultimi " + str(n_history) + " giorni)")
     plt.legend()
 
-    fig.savefig(path_output + "/plot_sir_att_pos_paese_h" + str(n_history) + "f" + str(n_forecast) + ".png")
+    fig.savefig(path_output + "/plot_sir_att_pos_paese_h" + str(n_history) + "f" + str(n_forecast) + ".png", bbox_inches = "tight")
 
 
 def desc_paese(path_output=dict_config["PATH_OUT"], figsize=[16, 8]):
@@ -75,7 +75,7 @@ def desc_paese(path_output=dict_config["PATH_OUT"], figsize=[16, 8]):
     ax.set_xlabel("Data")
     ax.grid()
     fig = ax.get_figure()
-    fig.savefig(path_output + "/plot_totale_casi_c.png")
+    fig.savefig(path_output + "/plot_totale_casi_c.png", bbox_inches = "tight")
 
 
     ax = obj_data_p.data.plot(
@@ -89,7 +89,7 @@ def desc_paese(path_output=dict_config["PATH_OUT"], figsize=[16, 8]):
     ax.set_xlabel("Data")
     ax.grid()
     fig = ax.get_figure()
-    fig.savefig(path_output + "/plot_totale_casi_g.png")
+    fig.savefig(path_output + "/plot_totale_casi_g.png", bbox_inches = "tight")
 
 
     ax = obj_data_p.data.plot(
@@ -103,7 +103,7 @@ def desc_paese(path_output=dict_config["PATH_OUT"], figsize=[16, 8]):
     ax.set_xlabel("Data")
     ax.grid()
     fig = ax.get_figure()
-    fig.savefig(path_output + "/plot_tamponi_c.png")
+    fig.savefig(path_output + "/plot_tamponi_c.png", bbox_inches = "tight")
 
 
     ax = obj_data_p.data.plot(
@@ -117,7 +117,7 @@ def desc_paese(path_output=dict_config["PATH_OUT"], figsize=[16, 8]):
     ax.set_xlabel("Data")
     ax.grid()
     fig = ax.get_figure()
-    fig.savefig(path_output + "/plot_tamponi_g.png")
+    fig.savefig(path_output + "/plot_tamponi_g.png", bbox_inches = "tight")
 
 
     ax = obj_data_p.data.plot(
@@ -131,7 +131,7 @@ def desc_paese(path_output=dict_config["PATH_OUT"], figsize=[16, 8]):
     ax.set_xlabel("Data")
     ax.grid()
     fig = ax.get_figure()
-    fig.savefig(path_output + "/plot_tot_casi_su_tamponi_g.png")
+    fig.savefig(path_output + "/plot_tot_casi_su_tamponi_g.png", bbox_inches = "tight")
 
 
     ax = obj_data_p.data.plot(
@@ -145,7 +145,7 @@ def desc_paese(path_output=dict_config["PATH_OUT"], figsize=[16, 8]):
     ax.set_xlabel("Data")
     ax.grid()
     fig = ax.get_figure()
-    fig.savefig(path_output + "/plot_att_pos_su_tamponi_g.png")
+    fig.savefig(path_output + "/plot_att_pos_su_tamponi_g.png", bbox_inches = "tight")
 
 
     ax = obj_data_p.data.plot(
@@ -159,7 +159,7 @@ def desc_paese(path_output=dict_config["PATH_OUT"], figsize=[16, 8]):
     ax.set_xlabel("Data")
     ax.grid()
     fig = ax.get_figure()
-    fig.savefig(path_output + "/plot_guariti_deceduti_g.png")
+    fig.savefig(path_output + "/plot_guariti_deceduti_g.png", bbox_inches = "tight")
 
 
     N0 = 1
@@ -190,7 +190,7 @@ def desc_paese(path_output=dict_config["PATH_OUT"], figsize=[16, 8]):
     plt.xlabel('n-esimo giorno da ' + str_today)
     plt.title("Proiezioni numero totale di tamponi (dato cumulato)")
     plt.legend()
-    fig.savefig(path_output + "/plot_tamponi_forecast_c.png")
+    fig.savefig(path_output + "/plot_tamponi_forecast_c.png", bbox_inches = "tight")
 
 
     forecast_sir_paese(
