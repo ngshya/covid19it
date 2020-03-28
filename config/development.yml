@@ -1,0 +1,6 @@
+ENV: DEVELOPMENT
+PING: PONG
+
+PATH_IN: in
+PATH_OUT: output
+PATH_SAVE: save
