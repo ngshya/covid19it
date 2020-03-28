@@ -1,5 +1,5 @@
 from pandas import read_csv, merge
-from numpy import int64, datetime_as_string, datetime64, timedelta64, unique, float64
+from numpy import int64, datetime_as_string, datetime64, timedelta64, unique, float64, cumsum
 from .logger import logger
 from ..utils.get_config import dict_config
 
@@ -70,14 +70,29 @@ class DataProvincia:
             .drop_duplicates(["data", "codice_provincia"]).shape[0] \
             == self.data.shape[0], "Dimension error!"
         self.data = self.data\
-            .sort_values(["data", "codice_regione", "codice_provincia"])
+            .sort_values([
+                "data", 
+                "denominazione_regione", 
+                "denominazione_provincia"
+            ])
         self.data["totale_casi_confermati_regione"] = self.data\
-            .groupby(["data", "codice_regione"])\
+            .groupby(["data", "denominazione_regione"])\
             ["totale_casi_confermati_provincia"].transform(sum)
-        self.data["in_definizione_provincia_stima"] \
+        self.data["totale_casi_confermati_provincia_g"] = self.data\
+            .groupby(["denominazione_regione", "denominazione_provincia"])\
+            ["totale_casi_confermati_provincia"].diff(1)\
+            .fillna(self.data.totale_casi_confermati_provincia)
+        self.data["in_definizione_provincia_stima_g"] \
             = self.data["totale_casi_confermati_provincia"] \
             / self.data["totale_casi_confermati_regione"] \
             * self.data["in_definizione_regione"]
-        self.data["in_definizione_provincia_stima"] \
-            = self.data["in_definizione_provincia_stima"].fillna(0.0)
+        self.data["in_definizione_provincia_stima_g"] \
+            = self.data["in_definizione_provincia_stima_g"].fillna(0.0)
+        self.data["totale_casi_confermati_e_in_def_stima_g"] \
+            = self.data["totale_casi_confermati_provincia_g"] \
+            + self.data["in_definizione_provincia_stima_g"] 
+        self.data["totale_casi_confermati_e_in_def_stima"] \
+            = self.data["totale_casi_confermati_provincia"] \
+            + cumsum(self.data["in_definizione_provincia_stima_g"])
+        del self.data["in_definizione_regione"]
         logger.debug("Data parsed.")
