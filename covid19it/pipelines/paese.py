@@ -89,7 +89,7 @@ def desc_paese(path_output=dict_config["PATH_OUT"], figsize=[16, 8]):
     draw = ImageDraw.Draw(canvas)
     for i,t in enumerate(array_text):
         draw.text((10, 10+i*(h+10)), t, 'grey', font)
-    canvas.save(path_output + "/plot-andamento-nazionale.png", "PNG")
+    canvas.save(path_output + "/plot_andamento_nazionale.png", "PNG")
 
 
     ax = obj_data_p.data.plot(
