@@ -1,9 +1,15 @@
 # COVID-19 Italia
 
+Questo sito contiene informazioni relative all'andamento di COVID-19 in Italia. 
+I vari grafici e le proiezioni sono ricavati a partire dai dati ufficiali rilasciati dalla Protezione Civile al seguente link: [Repository della Protezione Civile su COVID-19](https://github.com/pcm-dpc/COVID-19).
+Le proiezioni fornite dal presente sito sono basate su modelli semplici, e quindi non affidabili.  
+
+
 ## Andamento nazionale
 
 ### Casi totali 
 ![andamento nazionale casi totali](output/plot_totale_casi_c.png)
+
 
 ### Delta giornaliero casi totali
 ![delta giornaliero casi totali](output/plot_totale_casi_g.png)
