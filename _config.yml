@@ -1,4 +1,5 @@
 theme: jekyll-theme-cayman
-title: [COVID-19 ITALIA]
+title: COVID-19 ITALIA
+description: Monitoraggio dell'andamento della malattia respiratoria acuta da SARS-CoV-2 a livello nazionale e locale.
 github:
     is_project_page: false
