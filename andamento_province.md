@@ -14,6 +14,6 @@ Questa matrice di correlazione mostra quanto sono correlati i numeri totali di c
 
 ### Trendsetter
 [ ![](output/plot_lag_province.png) ](output/plot_lag_province.png)
-Questa matrice mostra una stima potenziale di giorni di lag ci sono tra le curve del numero totale dei contagi delle varie province. 
+Questa matrice mostra una stima potenziale di giorni di lag che ci sono tra le curve del numero totale dei contagi delle varie province. 
 
 [Homepage](README.md)
