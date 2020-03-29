@@ -30,7 +30,7 @@
 
 ## Previsioni 
 
-Le previsioni presentate qui sotto sono ottenute usando modelli semplicistici e ignorando elementi che sono determinanti in un setting realistico (es. fattori esogeni, dinamiche di diffusione, interventi restrittivi, ecc.). 
+Le previsioni presentate qui sotto sono ottenute usando modelli semplicistici e ignorano elementi che sono determinanti in un setting realistico (es. fattori esogeni, dinamiche di diffusione, interventi restrittivi, ecc.). La creazione di un modello di precisione che faccia il forecast dell'andamento dell'epidemia va oltre lo scopo di queste pagine che invece sono a scopo puramente illustrativo e di studio. 
 
 ### Forecast tamponi
 ![forecast numero di tamponi effettuati](output/plot_tamponi_forecast_c.png)
