@@ -26,15 +26,18 @@ class DataPaese:
                 "terapia_intensiva": int64,
                 "totale_ospedalizzati": int64,
                 "isolamento_domiciliare": int64,
-                "totale_attualmente_positivi": int64,
-                "nuovi_attualmente_positivi": int64,
+                "totale_positivi": int64,
+                "nuovi_positivi": int64,
                 "dimessi_guariti": int64,
                 "deceduti": int64,
                 "totale_casi": int64,
                 "tamponi": int64
             },
             parse_dates=["data"]
-        )
+        ).rename({
+            "totale_positivi": "totale_attualmente_positivi", 
+            "nuovi_positivi": "nuovi_attualmente_positivi"
+        }, axis=1)
         self.data = self.data.sort_values(["data"])
         if datetime_as_string(self.data.data.values[-1], unit='D') \
             != datetime_as_string(datetime64('today'), unit='D'):
