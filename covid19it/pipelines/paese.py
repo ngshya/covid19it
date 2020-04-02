@@ -30,9 +30,9 @@ def forecast_sir_paese(
     obj_model_sir.fit(N0=N0, array_I=array_I[-n_history:], array_R=array_R[-n_history:], n_history=None, fit_start=True)
     array_S_forecast, array_I_forecast, array_R_forecast = obj_model_sir.forecast(n_forecast)
 
-    plt.plot(array_days[n_past_days-n_history:], array_S_forecast, color="darkgreen", linewidth=3, label="Suscettibili  (proiezioni aggiornate)")
-    plt.plot(array_days[n_past_days-n_history:], array_I_forecast, color="blue", linewidth=3, label="Infetti (proiezioni    aggiornate)")
-    plt.plot(array_days[n_past_days-n_history:], array_R_forecast, color="red", linewidth=3, label="Rimossi (proiezioni     aggiornate)")
+    plt.plot(array_days[n_past_days-n_history:], array_S_forecast, color="darkgreen", linewidth=3, label="Suscettibi (proiezioni aggiornate)")
+    plt.plot(array_days[n_past_days-n_history:], array_I_forecast, color="blue", linewidth=3, label="Infetti (proiezioni aggiornate)")
+    plt.plot(array_days[n_past_days-n_history:], array_R_forecast, color="red", linewidth=3, label="Rimossi (proiezioni aggiornate)")
 
     obj_model_sir.fit(N0=N0, array_I=array_I, array_R=array_R, n_history=None, fit_start=True)
     array_S_forecast_h, array_I_forecast_h, array_R_forecast_h = obj_model_sir.forecast(n_forecast)

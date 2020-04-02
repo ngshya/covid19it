@@ -49,7 +49,7 @@ class ModelSIR:
             for i in range(len(array_I))])
         self.SIR0 = self.array_SIR[0]
         self.array_steps = arange(len(array_I))
-        self.optimal_parms = fmin(self.__m, (self.SIR0[0], self.SIR0[1], self.SIR0[2], 1, 1), disp=0) # beta and gamma
+        self.optimal_parms = fmin(self.__m, (self.SIR0[0], self.SIR0[1], self.SIR0[2], 0.1, 0.1), disp=0) # beta and gamma
         logger.debug("Model trained.")
 
     def forecast(self, n_forecast):

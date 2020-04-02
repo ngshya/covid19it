@@ -40,13 +40,10 @@ class DataProvincia:
         if datetime_as_string(self.data.data.values[-1], unit='D') \
             != datetime_as_string(datetime64('today'), unit='D'):
             logger.warn("Data not updated.")
-        if self.data.shape[0] != len(unique(self.data.data.values)):
-            logger.warn("Duplicated dates.")
-        if (datetime64(self.data.data.values[-1], "D") \
-            - datetime64(self.data.data.values[0], "D")) \
-            .astype('timedelta64[D]') / timedelta64(1, 'D') + 1 \
-            != self.data.shape[0]:
-            logger.warn("Missing dates.")
+        assert int((max(self.data.data.values)-min(self.data.data.values))\
+            .astype('timedelta64[D]') / timedelta64(1, 'D')+1) \
+            != len(unique(self.data.data.values)), \
+            "Problems with dates."
         logger.debug("Data loaded.")
 
     def parse(self):
