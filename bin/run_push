@@ -12,7 +12,7 @@ commit_website_files() {
 }
 
 upload_files() {
-  git remote add origin https://ngshya:${GH_TOKEN}@github.com/ngshya/covid19mdb.git > /dev/null 2>&1
+  git remote add origin https://ngshya:${GH_TOKEN}@github.com/ngshya/covid19it.git > /dev/null 2>&1
   git push --quiet --set-upstream origin master 
 }
 
