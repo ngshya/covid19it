@@ -13,6 +13,7 @@ commit_website_files() {
 
 upload_files() {
   git remote set-url origin https://ngshya:${GH_TOKEN}@github.com/ngshya/covid19it.git > /dev/null 2>&1
+  git remote -v
   git push
 }
 
