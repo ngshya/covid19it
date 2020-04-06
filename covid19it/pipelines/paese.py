@@ -81,7 +81,7 @@ def desc_paese(path_output=dict_config["PATH_OUT"], figsize=[16, 8]):
     .iloc[-1, :]
 
     array_text = str(dtf_last).split("\n")[0:-1]
-    font = ImageFont.truetype("/usr/share/fonts/TTF/Inconsolata-Black.ttf", 28, encoding="unic")
+    font = ImageFont.truetype("Inconsolata-Black.ttf", 28, encoding="unic")
     h = font.getsize(array_text[0])[1]
     w = max([font.getsize(_)[0] for _ in array_text]) + 20
     H = (h + 10) * len(array_text) + 20
